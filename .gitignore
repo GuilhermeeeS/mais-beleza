@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source assets (material bruto — não vai para o deploy)
+/content
+/hero-fonte-limpa.jpg
+
+# typescript build info
+*.tsbuildinfo
+
+# claude local config
+/.claude
