@@ -4,7 +4,7 @@ export function Logo({ height = 40, white = false }: { height?: number; white?: 
   return (
     <Image
       src="/logo.png"
-      alt="Mais Beleza · Bem estar e Estética"
+      alt="Mais Beleza | Bem estar e Estética"
       width={1075}
       height={394}
       priority

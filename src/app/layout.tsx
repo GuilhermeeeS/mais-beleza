@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mais Beleza · Bem estar e Estética que vai até você",
+  title: "Mais Beleza | Bem estar e Estética que vai até você",
   description:
     "Quick massage, spa day e experiências de bem‑estar levados até você: em casa, empresas, eventos e momentos especiais. Terapeutas certificadas e estrutura completa.",
 };
