@@ -7,7 +7,7 @@ const passos = [
     active: true,
   },
   {
-    title: "Montamos sua proposta",
+    title: "Preparamos uma proposta personalizada",
     desc: "Sugerimos o formato ideal e alinhamos todos os detalhes com você.",
   },
   {

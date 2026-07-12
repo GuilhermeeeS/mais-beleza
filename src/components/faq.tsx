@@ -25,7 +25,7 @@ const faqs = [
     a: "Quanto antes melhor, principalmente para datas especiais e eventos. Mas fale com a gente que damos um jeito.",
   },
   {
-    q: "A equipe é certificada?",
+    q: "As profissionais são certificadas?",
     a: "Sim. Nossa equipe é formada por profissionais qualificadas em massoterapia e estética.",
   },
 ];
