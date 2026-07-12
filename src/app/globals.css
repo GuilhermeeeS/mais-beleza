@@ -274,7 +274,7 @@ html.js .reveal.is-visible {
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
   .item-card { grid-template-columns: 1fr; position: static; }
-  .item-card .slot { min-height: 0; aspect-ratio: 16/11; }
+  .item-card .slot { min-height: 0; aspect-ratio: 16/11; align-self: start; }
   .tools-card, .grow-grid, .faq-grid { grid-template-columns: 1fr; }
   .tools-right .slot { position: static; height: auto; aspect-ratio: 16/11; }
   .tool-card { position: static; }
