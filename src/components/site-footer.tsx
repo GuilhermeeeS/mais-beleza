@@ -1,100 +1,98 @@
-import { site, whatsappLink } from "@/lib/site";
+import { site, waAgendar } from "@/lib/site";
+import { Logo } from "@/components/logo";
 
 const nav = [
-  { href: "/#sobre", label: "Sobre" },
-  { href: "/#servicos", label: "Serviços" },
-  { href: "/#como-funciona", label: "Como funciona" },
-  { href: "/#afiliado", label: "Seja afiliado" },
-  { href: "/#faq", label: "Dúvidas" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Como funciona", href: "#como-funciona" },
+  { label: "Dúvidas", href: "#faq" },
 ];
 
-function IconInstagram() {
+const servicos = [
+  { label: "Atendimento corporativo", href: "#servicos" },
+  { label: "Spa Day", href: "#servicos" },
+  { label: "Estética & emagrecimento", href: "#servicos" },
+];
+
+function InstagramIcon() {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }
 
-function IconWhatsApp() {
+function WhatsappIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden>
-      <path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.74.46 3.44 1.33 4.94L2 22l5.3-1.39a9.86 9.86 0 0 0 4.73 1.2h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.24.68-1.42 1.32-1.95 1.36-.5.05-.97.24-3.27-.68-2.76-1.09-4.5-3.94-4.64-4.13-.13-.19-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.24-.27.53-.34.71-.34.18 0 .36 0 .51.01.16.01.39-.06.6.46.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.11.07.63-.17 1.31Z" />
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
     </svg>
   );
 }
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-linha bg-areia/40">
-      <div className="mx-auto max-w-360 px-6 lg:px-12 pt-16">
-        {/* Nav centralizada */}
-        <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-          {nav.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-cafe/75 transition-colors hover:text-bronze"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Wordmark gigante (embossed) */}
-        <div className="mt-12 text-center">
-          <span
-            className="wordmark block whitespace-nowrap bg-clip-text pb-[0.08em] text-transparent"
-            style={{
-              fontSize: "clamp(1.9rem, 12vw, 10rem)",
-              fontWeight: 600,
-              lineHeight: 1.05,
-              letterSpacing: "0.02em",
-              backgroundImage:
-                "linear-gradient(180deg, rgba(138,98,48,0.9), rgba(169,123,60,0.45))",
-            }}
-          >
-            MAIS BELEZA
-          </span>
-          <span className="wordmark-script mt-2 block text-2xl text-bronze/80">
-            {site.tagline}
-          </span>
-        </div>
-      </div>
-
-      {/* Linha + rodapé inferior */}
-      <div className="mt-14 border-t border-linha/70">
-        <div className="mx-auto flex max-w-360 flex-col gap-4 px-6 lg:px-12 py-6 text-sm text-neutro sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            © {new Date().getFullYear()} {site.nome}. Todos os direitos
-            reservados.
-          </span>
-
-          <div className="flex items-center gap-5">
-            <a href={whatsappLink("Olá! Vim pelo site da Mais Beleza.")} className="hover:text-bronze">
-              {site.telefone}
-            </a>
-            <div className="flex items-center gap-3">
-              <a
-                href={site.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram da Mais Beleza"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-linha text-cafe/70 transition-colors hover:border-bronze hover:text-bronze"
-              >
-                <IconInstagram />
-              </a>
-              <a
-                href={whatsappLink("Olá! Vim pelo site da Mais Beleza.")}
-                aria-label="WhatsApp da Mais Beleza"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-linha text-cafe/70 transition-colors hover:border-bronze hover:text-bronze"
-              >
-                <IconWhatsApp />
-              </a>
-            </div>
+    <footer className="footer">
+      <div className="container">
+        <div className="foot-brand-row">
+          <div className="foot-brand">
+            <Logo height={68} />
+            <p>Bem estar e Estética levados até você — em casa, empresas e eventos.</p>
           </div>
+          <div className="socials">
+            <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <InstagramIcon />
+            </a>
+            <a href={waAgendar} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <WhatsappIcon />
+            </a>
+          </div>
+        </div>
+
+        <div className="foot-cols">
+          <div className="foot-col">
+            <h5>Navegação</h5>
+            {nav.map((n) => (
+              <a key={n.label} href={n.href}>
+                {n.label}
+              </a>
+            ))}
+          </div>
+          <div className="foot-col">
+            <h5>Atendimentos</h5>
+            {servicos.map((s) => (
+              <a key={s.label} href={s.href}>
+                {s.label}
+              </a>
+            ))}
+          </div>
+          <div className="foot-col">
+            <h5>Contato</h5>
+            <a href={waAgendar} target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+            <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer">
+              @{site.instagram}
+            </a>
+            <a href={`tel:+${site.whatsapp}`}>{site.phone}</a>
+          </div>
+          <div className="news">
+            <h5>É massoterapeuta?</h5>
+            <p>Candidate-se para atender com a Mais Beleza e faça parte da nossa rede.</p>
+            <a className="pill pill-dark" href="/seja-afiliado">
+              Quero ser afiliado
+            </a>
+          </div>
+        </div>
+
+        <div className="foot-bottom">
+          <span>
+            © {new Date().getFullYear()} {site.name} · {site.tagline}
+          </span>
+          <span>
+            {site.phone} · @{site.instagram}
+          </span>
         </div>
       </div>
     </footer>

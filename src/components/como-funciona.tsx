@@ -1,37 +1,55 @@
-import { passos } from "@/lib/site";
-import { SectionHeader } from "./section-header";
-import { Reveal } from "./reveal";
+import Image from "next/image";
+
+const passos = [
+  {
+    title: "Fale com a gente",
+    desc: "Chame no WhatsApp e conte o que precisa: data, local e tipo de atendimento.",
+    active: true,
+  },
+  {
+    title: "Montamos sua proposta",
+    desc: "Sugerimos o formato ideal e alinhamos todos os detalhes com você.",
+  },
+  {
+    title: "Vamos até você",
+    desc: "No dia marcado, chegamos com toda a estrutura e montamos no local.",
+  },
+  {
+    title: "É só relaxar",
+    desc: "Você aproveita a experiência; a gente cuida de todo o resto.",
+  },
+];
 
 export function ComoFunciona() {
   return (
-    <section
-      id="como-funciona"
-      className="section-full scroll-mt-24 bg-areia/40 py-24 md:py-32"
-    >
-      <div className="mx-auto w-full max-w-360 px-6 lg:px-12">
-        <SectionHeader
-          eyebrow="Simples do início ao fim"
-          title="Como funciona"
-          subtitle="Do primeiro contato ao momento de relaxar, a gente cuida de tudo. Você não se preocupa com nada."
-        />
-
-        <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-          {passos.map((p, i) => (
-            <Reveal key={p.numero} variant="blur" delay={i * 100}>
-              <div className="relative">
-                <span className="text-5xl font-medium text-bronze/30 tabular-nums md:text-6xl">
-                  {p.numero}
-                </span>
-                <div className="mt-4 h-px w-10 bg-bronze/40" />
-                <h3 className="mt-5 text-xl font-medium text-cafe">
-                  {p.titulo}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutro">
-                  {p.descricao}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+    <section className="section" id="como-funciona">
+      <div className="container">
+        <div className="grow-card">
+          <div className="grow-head">
+            <span className="eyebrow">Como funciona</span>
+            <h2 className="display-md">Simples do começo ao fim</h2>
+            <p className="lead center">Do primeiro contato ao relaxamento, em 4 passos.</p>
+          </div>
+          <div className="grow-grid">
+            <div className="steps">
+              {passos.map((p) => (
+                <div className={`step${p.active ? " active" : ""}`} key={p.title}>
+                  <div className="sicon" aria-hidden>◇</div>
+                  <h4>{p.title}</h4>
+                  <p>{p.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="slot">
+              <Image
+                src="/fotos/slot-como-funciona.webp"
+                alt="Estrutura da Mais Beleza montada para o atendimento"
+                fill
+                sizes="(max-width: 900px) 100vw, 620px"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

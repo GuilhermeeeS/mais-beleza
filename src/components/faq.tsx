@@ -1,59 +1,80 @@
 "use client";
 
 import { useState } from "react";
-import { faq } from "@/lib/site";
-import { SectionHeader } from "./section-header";
+import { waDuvidas } from "@/lib/site";
+
+const faqs = [
+  {
+    q: "Vocês atendem em qual região?",
+    a: "Atendemos a região do Vale do Paraíba e cidades próximas. Chame no WhatsApp com o local do atendimento que confirmamos a disponibilidade.",
+  },
+  {
+    q: "Preciso ter estrutura no local?",
+    a: "Não. Levamos cadeira, macas e todo o material. Só precisamos de um espaço tranquilo para montar.",
+  },
+  {
+    q: "Como funciona para empresas e eventos?",
+    a: "Montamos um formato sob medida pelo tempo do evento e pelo número de pessoas. Peça um orçamento no WhatsApp.",
+  },
+  {
+    q: "Quais as formas de pagamento?",
+    a: "Combinamos no fechamento — Pix, cartão ou transferência —, tudo alinhado antes do atendimento.",
+  },
+  {
+    q: "Com quanta antecedência devo agendar?",
+    a: "Quanto antes melhor, principalmente para datas especiais e eventos. Mas fale com a gente que damos um jeito.",
+  },
+  {
+    q: "A equipe é certificada?",
+    a: "Sim. Nossa equipe é formada por profissionais qualificadas em massoterapia e estética.",
+  },
+];
 
 export function Faq() {
-  const [aberto, setAberto] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-full scroll-mt-24 bg-areia/40 py-24 md:py-32">
-      <div className="mx-auto grid w-full max-w-360 gap-14 px-6 lg:px-12 md:grid-cols-[0.85fr_1.15fr]">
-        <div className="md:sticky md:top-28 md:self-start">
-          <SectionHeader
-            align="left"
-            eyebrow="Dúvidas frequentes"
-            title="Tudo que você precisa saber"
-            subtitle="Não achou sua dúvida? Fale com a gente pelo WhatsApp que respondemos rapidinho."
-          />
-        </div>
-
-        <div className="flex flex-col">
-          {faq.map((item, i) => {
-            const isOpen = aberto === i;
-            return (
-              <div key={item.pergunta} className="border-b border-linha">
+    <section className="section" id="faq">
+      <div className="container">
+        <div className="faq-grid">
+          <div>
+            <span className="eyebrow">Dúvidas</span>
+            <h2 className="display-md reveal" style={{ marginTop: 16 }}>
+              Perguntas frequentes
+            </h2>
+            <p className="lead" style={{ marginTop: 16 }}>
+              O que as pessoas mais perguntam antes de agendar.
+            </p>
+            <div className="faq-help">
+              <h4>Ficou com outra dúvida?</h4>
+              <p>Chama a gente no WhatsApp que respondemos rapidinho.</p>
+              <a className="pill pill-dark" href={waDuvidas} target="_blank" rel="noopener noreferrer">
+                Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+          <div className="accordion">
+            {faqs.map((f, i) => (
+              <div
+                className="qa reveal"
+                data-open={open === i}
+                style={{ transitionDelay: `${i * 0.07}s` }}
+                key={f.q}
+              >
                 <button
-                  type="button"
-                  onClick={() => setAberto(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
-                  aria-expanded={isOpen}
+                  className="q"
+                  onClick={() => setOpen(open === i ? null : i)}
+                  aria-expanded={open === i}
                 >
-                  <span className="text-lg font-medium text-cafe">
-                    {item.pergunta}
-                  </span>
-                  <span
-                    className={`flex h-7 w-7 flex-none items-center justify-center rounded-full border border-linha text-bronze transition-transform ${
-                      isOpen ? "rotate-45" : ""
-                    }`}
-                    aria-hidden
-                  >
-                    +
+                  {f.q}
+                  <span className="ic" aria-hidden>
+                    {open === i ? "–" : "+"}
                   </span>
                 </button>
-                <div
-                  className={`grid transition-all duration-300 ${
-                    isOpen ? "grid-rows-[1fr] pb-5" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="leading-relaxed text-neutro">{item.resposta}</p>
-                  </div>
-                </div>
+                <div className="a">{f.a}</div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

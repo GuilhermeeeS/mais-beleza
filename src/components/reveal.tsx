@@ -1,50 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 
-type Variant = "up" | "blur" | "clip" | "left" | "right" | "scale";
-
-// Revela o conteúdo quando entra na viewport. Sem dependências externas;
-// respeita prefers-reduced-motion via CSS.
-export function Reveal({
-  children,
-  delay = 0,
-  variant = "up",
-  className = "",
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  variant?: Variant;
-  className?: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
+/** Revela os títulos (h1/h2) devagar, com blur, ao entrarem na tela. */
+export function Reveal() {
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
     const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
-    io.observe(el);
+
+    els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
 
-  const variantClass = variant === "up" ? "" : `reveal-${variant}`;
-
-  return (
-    <div
-      ref={ref}
-      className={`reveal ${variantClass} ${visible ? "is-visible" : ""} ${className}`}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-    >
-      {children}
-    </div>
-  );
+  return null;
 }

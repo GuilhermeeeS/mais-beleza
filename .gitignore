@@ -43,6 +43,11 @@ next-env.d.ts
 # source assets (material bruto — não vai para o deploy)
 /content
 /hero-fonte-limpa.jpg
+# arquivos de referência/trabalho (não versionar)
+/ref.html
+/wireframe-numa.html
+/imagem-hero-ref.avif
+/hero-teste.png
 
 # typescript build info
 *.tsbuildinfo

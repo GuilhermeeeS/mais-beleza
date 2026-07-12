@@ -1,55 +1,47 @@
 import type { Metadata } from "next";
-import { Castoro, Inter, Parisienne } from "next/font/google";
-import { SmoothScroll } from "@/components/smooth-scroll";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import "lenis/dist/lenis.css";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { Reveal } from "@/components/reveal";
 
-const serif = Castoro({
-  variable: "--font-castoro",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500"],
   display: "swap",
 });
 
-const sans = Inter({
+const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const script = Parisienne({
-  variable: "--font-parisienne",
-  subsets: ["latin"],
-  weight: "400",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Mais Beleza · Bem estar e Estética",
+  title: "Mais Beleza — Bem estar e Estética que vai até você",
   description:
-    "Quick massage, spa day e experiências de beleza por demanda. Levamos bem-estar com propósito até você, sua empresa ou seu evento.",
-  openGraph: {
-    title: "Mais Beleza · Bem estar e Estética",
-    description:
-      "Bem-estar que vai até você. Quick massage, spa day e experiências de beleza para pessoas, empresas e eventos.",
-    type: "website",
-    locale: "pt_BR",
-  },
+    "Quick massage, spa day e experiências de bem-estar levados até você: em casa, empresas, eventos e momentos especiais. Terapeutas certificadas e estrutura completa.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="pt-BR"
-      className={`${serif.variable} ${sans.variable} ${script.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${inter.variable}`}
     >
-      <body className="min-h-full flex flex-col">
-        <SmoothScroll />
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{document.documentElement.classList.add('js')}catch(e){}",
+          }}
+        />
         {children}
+        <SmoothScroll />
+        <Reveal />
       </body>
     </html>
   );
