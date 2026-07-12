@@ -127,6 +127,7 @@ p { margin: 0; }
     transition: background-color .3s ease, box-shadow .3s ease;
   }
   .site-header .brand-logo { height: 42px !important; }
+  .header-logo { position: relative; z-index: 16; }
   .site-header[data-scrolled="true"] {
     background: rgba(247, 246, 243, .9); box-shadow: 0 1px 0 rgba(28, 29, 19, .08);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -137,6 +138,7 @@ p { margin: 0; }
 
   .hamburger {
     display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    position: relative; z-index: 16;
     width: 46px; height: 46px; padding: 0 11px; flex: none; cursor: pointer;
     background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .3);
     border-radius: 14px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);

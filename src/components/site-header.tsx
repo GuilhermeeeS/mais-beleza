@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { waAgendar } from "@/lib/site";
 import { Logo } from "@/components/logo";
 
@@ -13,6 +13,8 @@ const navItems = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const panelRef = useRef<HTMLElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,6 +27,25 @@ export function SiteHeader() {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  // fecha ao clicar fora do painel (e no Esc)
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: PointerEvent) => {
+      const t = e.target as Node;
+      if (panelRef.current?.contains(t) || btnRef.current?.contains(t)) return;
+      setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
     };
   }, [open]);
 
@@ -49,6 +70,7 @@ export function SiteHeader() {
       </a>
 
       <button
+        ref={btnRef}
         type="button"
         className="hamburger"
         aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -60,8 +82,8 @@ export function SiteHeader() {
         <span />
       </button>
 
-      <div className="mobile-menu" data-open={open} onClick={close}>
-        <nav onClick={(e) => e.stopPropagation()}>
+      <div className="mobile-menu" data-open={open}>
+        <nav ref={panelRef}>
           {navItems.map((item) => (
             <a key={item.href} href={item.href} onClick={close}>
               {item.label}
