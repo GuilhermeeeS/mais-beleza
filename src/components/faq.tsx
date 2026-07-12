@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Quais as formas de pagamento?",
-    a: "Combinamos no fechamento — Pix, cartão ou transferência —, tudo alinhado antes do atendimento.",
+    a: "Combinamos no fechamento (Pix, cartão ou transferência), tudo alinhado antes do atendimento.",
   },
   {
     q: "Com quanta antecedência devo agendar?",
@@ -71,7 +71,9 @@ export function Faq() {
                     {open === i ? "–" : "+"}
                   </span>
                 </button>
-                <div className="a">{f.a}</div>
+                <div className="a-wrap">
+                  <div className="a">{f.a}</div>
+                </div>
               </div>
             ))}
           </div>

@@ -5,13 +5,13 @@ const servicos = [
   {
     num: "01",
     title: "Atendimento corporativo",
-    desc: "Quick massage e bem-estar para a sua equipe, no escritório ou no seu evento. Menos estresse, mais ânimo e produtividade.",
+    desc: "Quick massage e bem‑estar para a sua equipe, no escritório ou no seu evento. Menos estresse, mais ânimo e produtividade.",
     img: "/fotos/slot-servicos-corporativo.webp",
   },
   {
     num: "02",
     title: "Spa Day individual e a dois",
-    desc: "Um dia de spa completo no conforto da sua casa: massagens, cuidados e relaxamento — sozinha ou a dois.",
+    desc: "Um dia de spa completo no conforto da sua casa: massagens, cuidados e relaxamento, sozinha ou a dois.",
     img: "/fotos/slot-servicos-spa.webp",
   },
 ];
@@ -24,7 +24,7 @@ export function Servicos() {
           <span className="eyebrow">Serviços</span>
           <h2 className="display-lg reveal">Experiências de cuidado para cada momento</h2>
           <p className="lead center">
-            Levamos massagem, spa e estética até você — em casa, na empresa ou no seu evento.
+            Levamos massagem, spa e estética até você, em casa, na empresa ou no seu evento.
           </p>
         </div>
 
@@ -55,9 +55,9 @@ export function Servicos() {
           <article className="item-card dark">
             <div className="rbody">
               <div className="rnum">03</div>
-              <h3>Momentos de bem-estar que ficam</h3>
+              <h3>Momentos de bem‑estar que ficam</h3>
               <p>
-                Sozinho, a dois ou em grupo — a gente monta uma pausa de
+                Sozinho, a dois ou em grupo, a gente monta uma pausa de
                 relaxamento onde você estiver, pra virar memória boa.
               </p>
               <div className="apps">
@@ -72,7 +72,7 @@ export function Servicos() {
             <div className="slot dark">
               <Image
                 src="/fotos/slot-servicos-momentos.webp"
-                alt="Momentos de bem-estar que ficam"
+                alt="Momentos de bem‑estar que ficam"
                 fill
                 sizes="(max-width: 900px) 100vw, 560px"
                 style={{ objectFit: "cover" }}

@@ -15,10 +15,10 @@ export function Hero() {
         />
       </div>
       <div className="hero-content">
-        <h1 className="display-xl reveal">O bem-estar que vai até você</h1>
+        <h1 className="display-xl reveal">O bem‑estar que vai até você</h1>
         <p className="lead reveal" style={{ transitionDelay: "0.14s" }}>
           Quick massage, spa day e experiências de estética levados até sua casa,
-          empresa ou evento — com terapeutas certificadas e estrutura completa.
+          empresa ou evento, com terapeutas certificadas e estrutura completa.
         </p>
         <div className="hero-actions reveal" style={{ transitionDelay: "0.28s" }}>
           <a className="pill pill-gold" href={waAgendar} target="_blank" rel="noopener noreferrer">

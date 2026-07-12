@@ -38,7 +38,7 @@ export function SiteFooter() {
         <div className="foot-brand-row">
           <div className="foot-brand">
             <Logo height={68} />
-            <p>Bem estar e Estética levados até você — em casa, empresas e eventos.</p>
+            <p>Bem estar e Estética levados até você, em casa, empresas e eventos.</p>
           </div>
           <div className="socials">
             <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">

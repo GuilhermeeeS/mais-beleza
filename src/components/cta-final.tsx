@@ -14,7 +14,7 @@ export function CtaFinal() {
         />
       </div>
       <div className="cta-content">
-        <h2 className="display-xl reveal">Seu momento de bem-estar começa agora</h2>
+        <h2 className="display-xl reveal">Seu momento de bem‑estar começa agora</h2>
         <div className="cta-actions">
           <a className="pill pill-gold" href={waAgendar} target="_blank" rel="noopener noreferrer">
             Agendar atendimento

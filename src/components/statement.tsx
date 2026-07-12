@@ -17,7 +17,7 @@ export function Statement() {
           <span className="eyebrow">Mais Beleza</span>
           <h2 className="display-lg reveal">Relaxar não é luxo. É cuidado com você.</h2>
           <p className="lead">
-            A gente cria uma pausa de bem-estar no meio da sua rotina — no seu
+            A gente cria uma pausa de bem‑estar no meio da sua rotina, no seu
             ritmo e no seu espaço.
           </p>
         </div>
