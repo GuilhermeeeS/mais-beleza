@@ -11,7 +11,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{ objectFit: "cover" }}
         />
       </div>
       <div className="hero-content">
