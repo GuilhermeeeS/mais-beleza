@@ -126,7 +126,7 @@ export function CarrosselVideos() {
         <span className="eyebrow">Na prática</span>
         <h2 className="display-md reveal">Momentos reais de cuidado</h2>
         <p className="lead">
-          Atendimentos, ambiente e experiências da Mais Beleza — do jeitinho que acontece.
+          Atendimentos, ambiente e experiências da Mais Beleza, do jeitinho que acontece.
         </p>
       </div>
 
