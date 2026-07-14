@@ -344,6 +344,40 @@ html.js .reveal.is-visible {
   html.js .reveal { opacity: 1; filter: none; transform: none; transition: none; }
 }
 
+/* ================= CARROSSEL (reels) ================= */
+.carrossel-sec { padding-block: clamp(72px, 10vh, 130px); position: relative; overflow: hidden; }
+.carrossel-head { margin-bottom: clamp(28px, 4vw, 48px); }
+.carrossel-head h2 { margin: 14px 0 16px; }
+.carrossel-head .lead { max-width: 52ch; }
+.reels-track {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px clamp(16px, 5vw, 64px) 22px; scroll-padding-inline: clamp(16px, 5vw, 64px);
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.reels-track::-webkit-scrollbar { display: none; }
+.reel {
+  position: relative; flex: 0 0 auto; width: clamp(238px, 74vw, 296px); aspect-ratio: 9 / 16;
+  margin: 0; border-radius: 26px; overflow: hidden; scroll-snap-align: center;
+  background: #14150f; box-shadow: 0 24px 60px -34px rgba(28, 29, 19, .55);
+}
+.reel video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.reel::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, .55), transparent 34%);
+}
+.reel-cap {
+  position: absolute; left: 14px; bottom: 14px; z-index: 2; color: #fff;
+  font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: .01em;
+  padding: 5px 13px; background: rgba(0, 0, 0, .38); backdrop-filter: blur(6px); border-radius: 999px;
+}
+.reel-sound {
+  position: absolute; top: 12px; right: 12px; z-index: 3; width: 40px; height: 40px;
+  display: grid; place-items: center; cursor: pointer; color: #fff; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .4); background: rgba(0, 0, 0, .4);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background-color .2s ease;
+}
+.reel-sound:hover { background: rgba(0, 0, 0, .6); }
+
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
   .item-card { grid-template-columns: 1fr; position: static; }

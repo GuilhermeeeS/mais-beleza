@@ -5,6 +5,7 @@ import { Servicos } from "@/components/servicos";
 import { Diferenciais } from "@/components/diferenciais";
 import { Statement } from "@/components/statement";
 import { ComoFunciona } from "@/components/como-funciona";
+import { CarrosselVideos } from "@/components/carrossel-videos";
 import { Faq } from "@/components/faq";
 import { CtaFinal } from "@/components/cta-final";
 import { SiteFooter } from "@/components/site-footer";
@@ -19,6 +20,7 @@ export default function Home() {
       <Diferenciais />
       <Statement />
       <ComoFunciona />
+      <CarrosselVideos />
       <Faq />
       <CtaFinal />
       <SiteFooter />

@@ -54,3 +54,7 @@ next-env.d.ts
 
 # claude local config
 /.claude
+
+# imagens/vídeos crus do cliente (intake — convertidas p/ public/)
+/fotos-cliente
+/videos-cliente
