@@ -344,6 +344,8 @@ html.js .reveal.is-visible {
   filter: blur(0);
   transform: none;
 }
+/* já revelado numa navegação anterior: aparece estático, sem re-animar */
+html.js .reveal.reveal-instant { transition: none; }
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal { opacity: 1; filter: none; transform: none; transition: none; }
 }

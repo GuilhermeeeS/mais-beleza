@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 export function SmoothScroll() {
+  const lenisRef = useRef<Lenis | null>(null);
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    lenisRef.current = lenis;
 
     let raf = 0;
     const loop = (time: number) => {
@@ -33,8 +38,24 @@ export function SmoothScroll() {
       cancelAnimationFrame(raf);
       document.removeEventListener("click", onClick);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // Ao trocar de rota: com âncora vai pra seção; sem âncora vai pro topo.
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        lenis.scrollTo(target as HTMLElement, { immediate: true });
+        return;
+      }
+    }
+    lenis.scrollTo(0, { immediate: true });
+  }, [pathname]);
 
   return null;
 }
