@@ -475,7 +475,7 @@ html.js .reveal.is-visible {
 /* ================= PÁGINA DE EXPERIÊNCIA (detalhe) ================= */
 .exp-hero { background: var(--color-dark); color: #f0f0e8; padding-block: clamp(120px, 16vh, 168px) clamp(56px, 7vw, 96px); }
 .exp-hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
-.exp-back { display: inline-block; margin-bottom: 22px; color: rgba(240, 240, 232, .7); font-size: 14px; }
+.exp-back { display: block; width: fit-content; margin-bottom: 22px; color: rgba(240, 240, 232, .7); font-size: 14px; }
 .exp-back:hover { color: #fff; }
 .exp-hero .eyebrow { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .2); color: rgba(240, 240, 232, .82); }
 .exp-hero-text h1 { color: #fff; margin: 14px 0 18px; }
