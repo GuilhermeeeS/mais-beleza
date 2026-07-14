@@ -5,9 +5,9 @@ import { waAgendar } from "@/lib/site";
 import { Logo } from "@/components/logo";
 
 const navItems = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Dúvidas", href: "#faq" },
+  { label: "Experiências", href: "/#experiencias" },
+  { label: "Quem somos", href: "/#quem-somos" },
+  { label: "Dúvidas", href: "/#faq" },
 ];
 
 export function SiteHeader() {
@@ -53,7 +53,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-header" data-scrolled={scrolled} data-open={open}>
-      <a href="#top" aria-label="Mais Beleza" className="header-logo" onClick={close}>
+      <a href="/" aria-label="Mais Beleza" className="header-logo" onClick={close}>
         <Logo white height={54} />
       </a>
 

@@ -1,9 +1,8 @@
 import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
-import { Stats } from "@/components/stats";
-import { Servicos } from "@/components/servicos";
-import { Diferenciais } from "@/components/diferenciais";
-import { Statement } from "@/components/statement";
+import { Beneficios } from "@/components/beneficios";
+import { QuemSomos } from "@/components/quem-somos";
+import { Experiencias } from "@/components/experiencias";
 import { ComoFunciona } from "@/components/como-funciona";
 import { CarrosselVideos } from "@/components/carrossel-videos";
 import { Faq } from "@/components/faq";
@@ -15,10 +14,9 @@ export default function Home() {
     <>
       <SiteHeader />
       <Hero />
-      <Stats />
-      <Servicos />
-      <Diferenciais />
-      <Statement />
+      <Beneficios />
+      <QuemSomos />
+      <Experiencias />
       <ComoFunciona />
       <CarrosselVideos />
       <Faq />
