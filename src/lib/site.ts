@@ -14,7 +14,7 @@ export function whatsappLink(message: string): string {
 
 /** CTA padrão de agendamento (abre o WhatsApp direto, sem formulário). */
 export const waAgendar = whatsappLink(
-  "Olá! Vim pelo site da Mais Beleza e gostaria de agendar um atendimento."
+  "Olá! Vim pelo site da Mais Beleza e gostaria de fazer um agendamento."
 );
 
 /** CTA de dúvidas gerais. */
