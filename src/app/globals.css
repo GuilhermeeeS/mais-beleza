@@ -433,6 +433,10 @@ html.js .reveal.is-visible {
   font-family: var(--font-body); font-size: 14px; font-style: italic;
 }
 
+/* imagens reais dentro das mídias (fill) */
+.quem-media, .exp-media, .exp-hero-media { position: relative; }
+.quem-media img, .exp-media img, .exp-hero-media img { object-fit: cover; border-radius: inherit; }
+
 /* ================= BENEFÍCIOS ================= */
 .benef-grid { margin-top: clamp(36px, 4vw, 56px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 1.8vw, 24px); }
 .benef-card {

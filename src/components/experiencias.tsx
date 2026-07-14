@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { experiencias } from "@/lib/experiencias";
 
 export function Experiencias() {
@@ -16,7 +17,17 @@ export function Experiencias() {
           {experiencias.map((e) => (
             <Link href={`/experiencias/${e.slug}`} className="exp-card" key={e.slug}>
               <div className="exp-media">
-                <span className="foto-ph">{e.cardFoto}</span>
+                {e.cardImg ? (
+                  <Image
+                    src={e.cardImg}
+                    alt={e.nome}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 640px"
+                    style={{ objectFit: "cover" }}
+                  />
+                ) : (
+                  <span className="foto-ph">{e.cardFoto}</span>
+                )}
               </div>
               <div className="exp-body">
                 <h3>{e.nome}</h3>

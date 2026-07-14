@@ -1,9 +1,17 @@
+import Image from "next/image";
+
 export function QuemSomos() {
   return (
     <section className="section" id="quem-somos">
       <div className="container quem-grid">
         <div className="quem-media">
-          <span className="foto-ph">Foto profissional da Mariane atendendo aqui (não selfie)</span>
+          <Image
+            src="/fotos/slot-diferenciais.webp"
+            alt="Equipe da Mais Beleza"
+            fill
+            sizes="(max-width: 900px) 100vw, 520px"
+            style={{ objectFit: "cover" }}
+          />
         </div>
         <div className="quem-text">
           <span className="eyebrow">Quem somos</span>

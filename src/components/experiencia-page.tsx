@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { waAgendar } from "@/lib/site";
@@ -28,7 +29,17 @@ export function ExperienciaPage({ exp }: { exp: Experiencia }) {
               </a>
             </div>
             <div className="exp-hero-media">
-              <span className="foto-ph">{exp.foto}</span>
+              {exp.img ? (
+                <Image
+                  src={exp.img}
+                  alt={exp.nome}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 520px"
+                  style={{ objectFit: "cover" }}
+                />
+              ) : (
+                <span className="foto-ph">{exp.foto}</span>
+              )}
             </div>
           </div>
         </section>

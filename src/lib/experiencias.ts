@@ -5,11 +5,13 @@ export type Experiencia = {
   nome: string;
   cardTexto: string;
   cardFoto: string;
+  cardImg?: string;
   eyebrow: string;
   titulo: string;
   subtitulo?: string;
   intro: string[];
   foto: string;
+  img?: string;
   blocos: Bloco[];
   fecho?: string;
   ctaLabel: string;
@@ -22,6 +24,7 @@ export const experiencias: Experiencia[] = [
     cardTexto:
       "Transformamos a sua casa num verdadeiro refúgio de bem‑estar, sem você precisar sair de casa.",
     cardFoto: "Foto do Home Spa (ambiente montado em casa) aqui",
+    cardImg: "/fotos/slot-statement.webp",
     eyebrow: "Home Spa",
     titulo: "Transformamos a sua casa em um verdadeiro refúgio de bem‑estar.",
     intro: [
@@ -30,6 +33,7 @@ export const experiencias: Experiencia[] = [
       "Você escolhe o local. Nós cuidamos de todos os detalhes.",
     ],
     foto: "Foto do Home Spa (você recebendo massagem em casa) aqui",
+    img: "/fotos/slot-statement.webp",
     blocos: [
       {
         titulo: "Para diferentes ocasiões",
@@ -77,6 +81,7 @@ export const experiencias: Experiencia[] = [
     cardTexto:
       "Alívio imediato para o corpo e a mente em poucos minutos, na cadeira e sem tirar a roupa. Ideal para empresas e eventos.",
     cardFoto: "Foto da Quick Massage (pessoa sentada na cadeira, empresa) aqui",
+    cardImg: "/fotos/slot-servicos-corporativo.webp",
     eyebrow: "Quick Massage",
     titulo: "Quick Massage Terapêutica Relaxante",
     subtitulo: "Alívio imediato para o corpo e a mente, em apenas alguns minutos.",
@@ -84,6 +89,7 @@ export const experiencias: Experiencia[] = [
       "A Quick Massage é uma terapia realizada em cadeira ergonômica, sem a necessidade de retirar a roupa, ideal para quem busca aliviar tensões musculares, reduzir o estresse e recuperar a disposição durante a rotina.",
     ],
     foto: "Foto da Quick Massage (atendimento na cadeira) aqui",
+    img: "/fotos/slot-servicos-momentos.webp",
     blocos: [
       {
         titulo: "Benefícios",
@@ -119,6 +125,7 @@ export const experiencias: Experiencia[] = [
     cardTexto:
       "Um dia inteiro de cuidado numa mansão exclusiva em Campos do Jordão, cercada pela natureza da Serra da Mantiqueira.",
     cardFoto: "Foto do Day Spa em Campos do Jordão (ambiente / vista) aqui",
+    cardImg: "/fotos/slot-servicos-spa.webp",
     eyebrow: "Day Spa em Campos do Jordão",
     titulo: "Day Spa Exclusivo em Campos do Jordão",
     subtitulo:
@@ -128,6 +135,7 @@ export const experiencias: Experiencia[] = [
       "Nosso Day Spa foi criado para quem deseja fazer uma pausa da rotina e viver momentos de cuidado, equilíbrio e bem‑estar em um ambiente sofisticado, reservado e preparado para proporcionar uma experiência inesquecível.",
     ],
     foto: "Foto do Day Spa em Campos do Jordão (mansão / vista da serra) aqui",
+    img: "/fotos/slot-servicos-spa.webp",
     blocos: [
       {
         titulo: "Uma experiência para compartilhar ou viver do seu jeito",
