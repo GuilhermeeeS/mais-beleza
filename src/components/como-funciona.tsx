@@ -22,7 +22,7 @@ const passos = [
 
 export function ComoFunciona() {
   return (
-    <section className="section" id="como-funciona">
+    <section className="section alt" id="como-funciona">
       <div className="container">
         <div className="grow-card">
           <div className="grow-head">

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function QuemSomos() {
   return (
-    <section className="section" id="quem-somos">
+    <section className="section alt" id="quem-somos">
       <div className="container quem-grid">
         <div className="quem-media">
           <Image

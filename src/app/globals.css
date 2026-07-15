@@ -7,6 +7,8 @@
   --color-sage: #6b7678;
   --color-cream: #e6e3dc;
   --color-bg: #f7f7f7;
+  /* creme suave: alterna com --color-bg pra dividir as seções sem quebrar o ritmo */
+  --color-cream-soft: #f3f0e9;
   --color-border: #e6e6e6;
   --color-muted: #a1a1a1;
   --color-accent: #a97b3c;
@@ -51,6 +53,8 @@ button { font-family: inherit; cursor: pointer; }
 .container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); width: 100%; }
 
 .section { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: safe center; padding-block: var(--sec-y); }
+/* alternância branco/creme entre seções vizinhas (ver ordem em app/page.tsx) */
+.section.alt { background: var(--color-cream-soft); }
 
 .stack { display: flex; flex-direction: column; }
 .center { text-align: center; align-items: center; }

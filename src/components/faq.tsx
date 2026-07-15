@@ -34,7 +34,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section" id="faq">
+    <section className="section alt" id="faq">
       <div className="container">
         <div className="faq-grid">
           <div>
