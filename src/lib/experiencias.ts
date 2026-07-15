@@ -169,6 +169,7 @@ export const experiencias: Experiencia[] = [
     cardTexto:
       "O cuidado que antecede um dos momentos mais importantes da sua vida, levado até o local escolhido pela noiva.",
     cardFoto: "Foto do Dia da Noiva (noiva em preparação) aqui",
+    cardImg: "/fotos/dia-da-noiva.webp",
     eyebrow: "Dia da Noiva",
     titulo: "O cuidado que antecede um dos momentos mais importantes da sua vida.",
     intro: [
@@ -176,6 +177,7 @@ export const experiencias: Experiencia[] = [
       "Levamos toda a estrutura até o local escolhido pela noiva, oferecendo uma experiência personalizada que pode ser realizada em casa, em hotéis, no local da cerimônia, em chácaras, sítios ou espaços de eventos.",
     ],
     foto: "Foto do Dia da Noiva (noiva relaxando antes do casamento) aqui",
+    img: "/fotos/dia-da-noiva.webp",
     blocos: [
       {
         titulo: "O que oferecemos",
