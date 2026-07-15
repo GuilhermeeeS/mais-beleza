@@ -13,11 +13,19 @@ const clips: { file: string; label: string; audio?: boolean }[] = [
   { file: "carrossel-marca", label: "Detalhes" },
 ];
 
+const N = clips.length;
+/* Loop infinito: renderizamos 3 cópias e mantemos o scroll na cópia do meio.
+   Como o conteúdo se repete a cada "set", somar/subtrair a largura de um set
+   é invisível pra quem olha — é assim que o carrossel nunca "acaba". */
+const REPS = 3;
+const loopClips = Array.from({ length: N * REPS }, (_, i) => clips[i % N]);
+
 const DEFAULT = Math.max(0, clips.findIndex((c) => c.file === "depoimento"));
+const START = N + DEFAULT; // mesmo clipe, mas na cópia do meio
 
 export function CarrosselVideos() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(DEFAULT);
+  const [active, setActive] = useState(START);
   const [playing, setPlaying] = useState<number | null>(null);
   const [sound, setSound] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
@@ -52,29 +60,52 @@ export function CarrosselVideos() {
     setActive(best);
   }, []);
 
+  /* Reposiciona o scroll pra cópia do meio quando ele escapa pras pontas.
+     Só roda com o scroll PARADO (scrollend): mexer em scrollLeft no meio de um
+     swipe mata o momentum no iOS e briga com o scroll suave das setas. */
+  const normalize = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const items = Array.from(track.querySelectorAll<HTMLElement>(".reel"));
+    if (items.length <= N) return;
+    // largura de um set medida pelos itens — o padding-inline da track
+    // entra só uma vez, então scrollWidth/REPS daria errado aqui.
+    const setW = items[N].offsetLeft - items[0].offsetLeft;
+    if (setW <= 0) return;
+    if (track.scrollLeft < setW * 0.5) track.scrollLeft += setW;
+    else if (track.scrollLeft > setW * 1.5) track.scrollLeft -= setW;
+  }, []);
+
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const el = track.querySelectorAll<HTMLElement>(".reel")[DEFAULT];
+    const el = track.querySelectorAll<HTMLElement>(".reel")[START];
     if (el) {
       const tr = track.getBoundingClientRect();
       const er = el.getBoundingClientRect();
       track.scrollLeft += er.left + er.width / 2 - (tr.left + tr.width / 2);
     }
     let raf = 0;
+    let idle = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(updateActive);
+      // fallback pra browser sem scrollend
+      clearTimeout(idle);
+      idle = window.setTimeout(normalize, 160);
     };
     track.addEventListener("scroll", onScroll, { passive: true });
+    track.addEventListener("scrollend", normalize);
     window.addEventListener("resize", onScroll);
     updateActive();
     return () => {
       track.removeEventListener("scroll", onScroll);
+      track.removeEventListener("scrollend", normalize);
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
+      clearTimeout(idle);
     };
-  }, [updateActive]);
+  }, [updateActive, normalize]);
 
   // trocou o vídeo central → volta ao mudo e reseta play
   useEffect(() => {
@@ -135,7 +166,6 @@ export function CarrosselVideos() {
           type="button"
           className="reels-nav prev"
           aria-label="Vídeo anterior"
-          disabled={active === 0}
           onClick={() => goTo(active - 1)}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -144,10 +174,10 @@ export function CarrosselVideos() {
         </button>
 
         <div className="reels-track" ref={trackRef}>
-          {clips.map((c, i) => (
+          {loopClips.map((c, i) => (
             <figure
               className={`reel${i === active ? " is-active" : ""}${playing === i ? " is-playing" : ""}`}
-              key={c.file}
+              key={`${c.file}-${i}`}
               onClick={() => handleReel(i)}
             >
               <video
@@ -159,7 +189,7 @@ export function CarrosselVideos() {
               />
               <span className="reel-cap">{c.label}</span>
 
-              {isTouch && c.audio && i === active && (
+              {isTouch && clips[i % N].audio && i === active && (
                 <button
                   type="button"
                   className="reel-sound"
@@ -210,7 +240,6 @@ export function CarrosselVideos() {
           type="button"
           className="reels-nav next"
           aria-label="Próximo vídeo"
-          disabled={active === clips.length - 1}
           onClick={() => goTo(active + 1)}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
