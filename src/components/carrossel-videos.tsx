@@ -117,7 +117,8 @@ export function CarrosselVideos() {
   useEffect(() => {
     videos().forEach((v, i) => {
       if (isTouch && i === active) {
-        v.muted = !(clips[i].audio && sound);
+        // i é índice do DOM (0..N*REPS-1); o clipe real está em i % N
+        v.muted = !(clips[i % N].audio && sound);
         v.play().catch(() => {});
       } else {
         v.pause();
